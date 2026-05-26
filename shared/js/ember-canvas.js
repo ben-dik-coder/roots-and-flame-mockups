@@ -1,6 +1,15 @@
 /**
  * Ildkuler — glødende kuler over hele siden
  */
+
+function debounce(fn, ms) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), ms);
+  };
+}
+
 function drawFireBall(ctx, x, y, radius, opacity, hue) {
   const r = radius;
 
@@ -57,10 +66,21 @@ function createEmberSystem(container, options = {}) {
   let particles = [];
   let animationId;
   let tick = 0;
+  let running = true;
+  let lastWidth = 0;
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+  function resize(force = false) {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    if (!force && lastWidth > 0 && Math.abs(w - lastWidth) < 8) {
+      return false;
+    }
+
+    lastWidth = w;
+    canvas.width = w;
+    canvas.height = h;
+    return true;
   }
 
   function createParticle(fromRandomHeight = false) {
@@ -96,6 +116,7 @@ function createEmberSystem(container, options = {}) {
   }
 
   function draw() {
+    if (!running) return;
     tick += 1;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -118,15 +139,26 @@ function createEmberSystem(container, options = {}) {
     animationId = requestAnimationFrame(draw);
   }
 
-  resize();
+  resize(true);
   initParticles();
   draw();
 
-  const onResize = () => {
-    resize();
-    initParticles();
-  };
+  const onResize = debounce(() => {
+    if (resize()) initParticles();
+  }, 250);
+
   window.addEventListener('resize', onResize);
+  window.addEventListener('orientationchange', () => {
+    if (resize(true)) initParticles();
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    running = !document.hidden;
+    if (running) {
+      cancelAnimationFrame(animationId);
+      draw();
+    }
+  });
 
   return () => {
     cancelAnimationFrame(animationId);
@@ -138,12 +170,13 @@ function createEmberSystem(container, options = {}) {
 function initGlobalEmbers() {
   const layer = document.getElementById('global-embers');
   if (!layer) return;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
   createEmberSystem(layer, {
-    maxParticles: 75,
+    maxParticles: isMobile ? 45 : 75,
     opacityMin: 0.18,
-    opacityMax: 0.5,
+    opacityMax: isMobile ? 0.38 : 0.5,
     sizeMin: 1.5,
-    sizeMax: 6,
+    sizeMax: isMobile ? 4.5 : 6,
   });
 }
 
@@ -157,11 +190,23 @@ function initFlameEdge(container) {
   container.appendChild(canvas);
   const ctx = canvas.getContext('2d');
   let particles = [];
+  let animationId;
+  let running = true;
+  let lastW = 0;
+  let lastH = 0;
 
-  function resize() {
+  function resize(force = false) {
     const rect = container.getBoundingClientRect();
-    canvas.width = rect.width;
-    canvas.height = rect.height;
+    const w = Math.max(1, Math.round(rect.width));
+    const h = Math.max(1, Math.round(rect.height));
+
+    if (!force && w === lastW && h === lastH) return false;
+
+    lastW = w;
+    lastH = h;
+    canvas.width = w;
+    canvas.height = h;
+    return true;
   }
 
   function spawnEmber() {
@@ -194,6 +239,7 @@ function initFlameEdge(container) {
   }
 
   function draw() {
+    if (!running) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach((p) => {
@@ -209,17 +255,42 @@ function initFlameEdge(container) {
       drawFireBall(ctx, p.x, p.y, p.size, p.opacity, p.hue);
     });
 
-    requestAnimationFrame(draw);
+    animationId = requestAnimationFrame(draw);
   }
 
-  resize();
+  resize(true);
   initParticles();
   draw();
 
-  window.addEventListener('resize', () => {
-    resize();
-    initParticles();
+  const onResize = debounce(() => {
+    if (resize()) initParticles();
+  }, 250);
+
+  const ro = typeof ResizeObserver !== 'undefined'
+    ? new ResizeObserver(onResize)
+    : null;
+
+  if (ro) {
+    ro.observe(container);
+  } else {
+    window.addEventListener('resize', onResize);
+  }
+
+  window.addEventListener('orientationchange', () => {
+    if (resize(true)) initParticles();
   });
+
+  const io = typeof IntersectionObserver !== 'undefined'
+    ? new IntersectionObserver((entries) => {
+      running = entries.some((entry) => entry.isIntersecting);
+      if (running) {
+        cancelAnimationFrame(animationId);
+        draw();
+      }
+    }, { threshold: 0 })
+    : null;
+
+  if (io) io.observe(container);
 }
 
 /** Flamme + gnist kun i hero-overgangen */

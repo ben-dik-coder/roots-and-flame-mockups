@@ -17,6 +17,8 @@ body {
   z-index: 0;
   pointer-events: none;
   opacity: 1;
+  height: 100svh;
+  overflow: hidden;
 }
 
 .global-ember-layer canvas {
@@ -41,9 +43,11 @@ body::after {
 /* ——— Hero (sentrert neon + bilde) ——— */
 .m2-hero {
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100svh;
+  height: 100svh;
+  max-height: 100svh;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -70,6 +74,8 @@ body::after {
   animation: none;
   transform: none;
   transition: none;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .m2-hero__overlay {
@@ -95,7 +101,7 @@ body::after {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100dvh;
+  min-height: 100svh;
   padding: calc(var(--nav-height) + 0.75rem) 1.5rem clamp(8rem, 18vw, 11rem);
   width: 100%;
   max-width: 32rem; /* 28 % smalere enn 720px */
@@ -277,8 +283,8 @@ body::after {
 /* Tilbud — bilde inne i kortet */
 .offers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
   margin-top: 2rem;
   align-items: stretch;
 }
@@ -443,7 +449,7 @@ body::after {
   height: min(22rem, 78vw);
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: 64% 22%;
   border: 3px solid rgba(201, 162, 39, 0.55);
   box-shadow:
     0 0 0 8px rgba(10, 10, 10, 0.85),
@@ -554,6 +560,14 @@ h1.neon-text {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
 
+@media (max-width: 768px) {
+  .m2-hero__bg img {
+    object-position: center 32%;
+    transform: scale(0.78);
+    transform-origin: center center;
+  }
+}
+
 @media (max-width: 640px) {
   .values-grid--cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -583,6 +597,12 @@ h1.neon-text {
   .value-card__body p {
     font-size: 0.68rem;
     display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .offers-grid {
+    grid-template-columns: 1fr;
   }
 }
 

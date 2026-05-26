@@ -63,7 +63,6 @@
       overlayDismissed = true;
       hero.classList.add('overlay-dismissed');
       window.removeEventListener('touchstart', dismissHeroOverlay);
-      window.removeEventListener('touchmove', dismissHeroOverlay);
       window.removeEventListener('pointermove', dismissHeroOverlay);
       window.removeEventListener('mousemove', dismissHeroOverlay);
     }
@@ -72,7 +71,6 @@
       dismissHeroOverlay();
     } else {
       window.addEventListener('touchstart', dismissHeroOverlay, { passive: true });
-      window.addEventListener('touchmove', dismissHeroOverlay, { passive: true });
       window.addEventListener('pointermove', dismissHeroOverlay, { passive: true });
       window.addEventListener('mousemove', dismissHeroOverlay, { passive: true });
     }
