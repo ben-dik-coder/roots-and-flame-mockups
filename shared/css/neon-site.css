@@ -17,8 +17,6 @@ body {
   z-index: 0;
   pointer-events: none;
   opacity: 1;
-  height: 100svh;
-  overflow: hidden;
 }
 
 .global-ember-layer canvas {
@@ -44,8 +42,6 @@ body::after {
 .m2-hero {
   min-height: 100vh;
   min-height: 100svh;
-  height: 100svh;
-  max-height: 100svh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -71,11 +67,6 @@ body::after {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  animation: none;
-  transform: none;
-  transition: none;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 .m2-hero__overlay {
@@ -562,13 +553,7 @@ h1.neon-text {
 
 @media (max-width: 768px) {
   .m2-hero__bg img {
-    width: 135%;
-    height: 135%;
-    left: -17.5%;
-    top: -12%;
-    object-fit: cover;
-    object-position: center 28%;
-    transform: none;
+    object-position: center 30%;
   }
 }
 
