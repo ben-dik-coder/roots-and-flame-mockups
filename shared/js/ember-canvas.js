@@ -160,6 +160,17 @@ function createEmberSystem(container, options = {}) {
     }
   });
 
+  let scrollPauseTimer;
+  window.addEventListener('scroll', () => {
+    running = false;
+    clearTimeout(scrollPauseTimer);
+    scrollPauseTimer = setTimeout(() => {
+      running = true;
+      cancelAnimationFrame(animationId);
+      draw();
+    }, 200);
+  }, { passive: true });
+
   return () => {
     cancelAnimationFrame(animationId);
     window.removeEventListener('resize', onResize);
@@ -291,6 +302,18 @@ function initFlameEdge(container) {
     : null;
 
   if (io) io.observe(container);
+
+  let scrollPauseTimer;
+  window.addEventListener('scroll', () => {
+    running = false;
+    clearTimeout(scrollPauseTimer);
+    scrollPauseTimer = setTimeout(() => {
+      if (!container.getBoundingClientRect().height) return;
+      running = true;
+      cancelAnimationFrame(animationId);
+      draw();
+    }, 200);
+  }, { passive: true });
 }
 
 /** Flamme + gnist kun i hero-overgangen */

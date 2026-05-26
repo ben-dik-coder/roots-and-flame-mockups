@@ -562,9 +562,13 @@ h1.neon-text {
 
 @media (max-width: 768px) {
   .m2-hero__bg img {
-    object-position: center 32%;
-    transform: scale(0.78);
-    transform-origin: center center;
+    width: 135%;
+    height: 135%;
+    left: -17.5%;
+    top: -12%;
+    object-fit: cover;
+    object-position: center 28%;
+    transform: none;
   }
 }
 
