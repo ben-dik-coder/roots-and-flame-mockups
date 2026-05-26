@@ -41,9 +41,10 @@ body::after {
 /* ——— Hero (sentrert neon + bilde) ——— */
 .m2-hero {
   width: 100%;
-  min-height: 100vh;
+  /* Kun svh — dvh/vh endres ved scroll på mobil og zoomer bildet */
+  height: 100svh;
   min-height: 100svh;
-  min-height: 100dvh;
+  max-height: 100svh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -69,6 +70,8 @@ body::after {
   height: 100%;
   object-fit: cover;
   object-position: center center;
+  transform: none;
+  will-change: auto;
 }
 
 /* Mobil: hele bildet synlig — ingenting klippes */
@@ -102,8 +105,8 @@ body::after {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100svh;
-  min-height: 100dvh;
+  min-height: 100%;
+  height: 100%;
   padding: calc(var(--nav-height) + 0.75rem) clamp(1rem, 4vw, 2rem) clamp(8rem, 18vw, 11rem);
   width: 100%;
   max-width: none;
