@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roots & Flame — Velg mockup</title>
+  <link rel="stylesheet" href="shared/css/base.css">
+  <style>
+    body {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at top, #1a1510 0%, #0a0a0a 50%);
+    }
+    .picker-hero {
+      text-align: center;
+      padding: 6rem 1.5rem 3rem;
+    }
+    .picker-hero h1 {
+      font-family: var(--font-script);
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      margin-bottom: 0.5rem;
+    }
+    .picker-hero h1 span { color: var(--gold); }
+    .picker-hero p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 500px;
+      margin-inline: auto;
+    }
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem clamp(1rem, 4vw, 3rem) 4rem;
+      max-width: 1400px;
+      margin-inline: auto;
+    }
+    .mockup-card {
+      border: 1px solid var(--border-gold);
+      background: var(--dark);
+      overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+      display: block;
+    }
+    .mockup-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(201, 162, 39, 0.15);
+    }
+    .mockup-preview {
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+    .mockup-preview.m1 { background: linear-gradient(135deg, #1a1510, #0a0a0a); border-bottom: 2px solid var(--gold); }
+    .mockup-preview.m2 { background: #0a0a0a; }
+    .mockup-preview.m2 h2 {
+      font-family: var(--font-script);
+      color: var(--gold-light);
+      text-shadow: 0 0 20px rgba(232, 197, 71, 0.6);
+      font-size: 2rem;
+    }
+    .mockup-preview.m3 { background: #121210; background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.02) 3px); }
+    .mockup-preview.m4 {
+      background: #0a0a0a;
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      margin: 20px auto;
+      border: 3px solid var(--border-gold);
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+    }
+    .mockup-preview.m5 { background: linear-gradient(90deg, #1a1008 50%, #0d0d0d 50%); }
+    .mockup-card .info { padding: 1.5rem; }
+    .mockup-card .num {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .mockup-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      margin: 0.35rem 0 0.5rem;
+    }
+    .mockup-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+    .mockup-card .open {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+  <header class="picker-hero">
+    <h1>Roots & <span>Flame</span></h1>
+    <p>5 premium mockups — klikk for å åpne i nettleseren. Bytt språk (NO/EN) inne i hver mockup.</p>
+  </header>
+
+  <div class="mockup-grid">
+    <a class="mockup-card" href="mockups/01-gold-ember/index.html">
+      <div class="mockup-preview m1">
+        <span style="font-family: var(--font-display); color: var(--gold); font-size: 1.5rem;">499,-</span>
+      </div>
+      <div class="info">
+        <span class="num">01</span>
+        <h3>Gold Ember</h3>
+        <p>Klassisk luksus. Gull, serif, ember-partikler og pizza-tilbud.</p>
+        <span class="open">Åpne mockup →</span>
+      </div>
+    </a>
+
+    <a class="mockup-card" href="mockups/02-neon-roots/index.html" style="border-color: var(--gold); box-shadow: 0 0 40px rgba(201,162,39,0.2);">
+      <div class="mockup-preview m2" style="justify-content: center; align-items: center;">
+        <h2>Roots & Flame</h2>
+      </div>
+      <div class="info">
+        <span class="num">02 ★ Valgt</span>
+        <h3>Neon Roots — Full site</h3>
+        <p>Komplett nettside med full meny (152 retter), kontakt og bestilling.</p>
+        <span class="open">Åpne nettside →</span>
+      </div>
+    </a>
+
+    <a class="mockup-card" href="mockups/03-heritage-flame/index.html">
+      <div class="mockup-preview m3"></div>
+      <div class="info">
+        <span class="num">03</span>
+        <h3>Heritage Flame</h3>
+        <p>Vintage avis, vedfyrte spesialiteter, SVG-flamme og brand-historie.</p>
+        <span class="open">Åpne mockup →</span>
+      </div>
+    </a>
+
+    <a class="mockup-card" href="mockups/04-club-noir/index.html">
+      <div style="padding: 1rem; display: flex; justify-content: center;">
+        <div class="mockup-preview m4"></div>
+      </div>
+      <div class="info">
+        <span class="num">04</span>
+        <h3>Club Noir</h3>
+        <p>Eksklusiv restaurant. Vignett, steak, vin og amber-bokeh.</p>
+        <span class="open">Åpne mockup →</span>
+      </div>
+    </a>
+
+    <a class="mockup-card" href="mockups/05-street-luxe/index.html">
+      <div class="mockup-preview m5">
+        <span style="font-family: var(--font-bold); font-size: 2rem; color: var(--gold); letter-spacing: 0.05em;">FLAME</span>
+      </div>
+      <div class="info">
+        <span class="num">05</span>
+        <h3>Street Luxe</h3>
+        <p>Urban premium. Kraftig type, burger + pizza, flamme-hover på kort.</p>
+        <span class="open">Åpne mockup →</span>
+      </div>
+    </a>
+  </div>
+</body>
+</html>

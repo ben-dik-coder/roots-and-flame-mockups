@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full meny — Roots & Flame Narvik. Pizza, grill, pasta, burger og mer.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Meny — Roots & Flame · Narvik</title>
+  <link rel="stylesheet" href="shared/css/base.css">
+  <link rel="stylesheet" href="shared/css/flame.css">
+  <link rel="stylesheet" href="shared/css/neon-site.css">
+  <link rel="stylesheet" href="shared/css/menu-neon.css">
+  <link rel="stylesheet" href="shared/css/menu-page.css">
+</head>
+<body class="menu-page-body">
+  <div id="global-embers" class="global-ember-layer" aria-hidden="true"></div>
+
+  <div class="site-wrap">
+    <nav class="site-nav" aria-label="Hovedmeny">
+      <a href="index.html#home" class="logo neon-text">Roots & <span>Flame</span></a>
+      <button class="nav-toggle" type="button" aria-label="Meny">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html#home" data-i18n="nav_home">Hjem</a></li>
+        <li><a href="index.html#offers" data-i18n="nav_offers">Tilbud</a></li>
+        <li><a href="menu.html" class="active" data-i18n="nav_menu">Meny</a></li>
+        <li><a href="index.html#about" data-i18n="nav_about">Om oss</a></li>
+        <li><a href="index.html#contact" data-i18n="nav_contact">Kontakt</a></li>
+        <li class="lang-toggle">
+          <button type="button" data-lang="no" class="active">NO</button>
+          <span class="sep">|</span>
+          <button type="button" data-lang="en">EN</button>
+        </li>
+      </ul>
+    </nav>
+
+    <header class="menu-page-hero">
+      <div class="container menu-page-hero__inner">
+        <a href="index.html" class="menu-page-back" data-i18n="menu_page_back">← Tilbake til forsiden</a>
+        <p class="section-label" data-i18n="section_menu_full">Meny</p>
+        <h1 class="neon-text">Roots & Flame</h1>
+        <p class="menu-page-sub neon-text soft" data-i18n="section_menu_full_title">Full meny</p>
+        <p class="menu-section-intro" data-i18n="menu_intro">152 retter — pizza, grill, pasta, salater og mer.</p>
+        <div class="menu-page-cta">
+          <a href="tel:+4776944444" class="btn btn-primary glow-pulse" data-i18n="cta_call">Ring og bestill</a>
+          <a href="https://wolt.com/nb/nor/narvik/restaurant/milano-narvik" target="_blank" rel="noopener" class="btn" data-i18n="order_wolt">Wolt</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="menu" class="menu-page-main section-neon">
+      <div class="container">
+        <input
+          type="search"
+          id="menu-search"
+          class="menu-search"
+          data-i18n="menu_search_placeholder"
+          placeholder="Søk i menyen…"
+          aria-label="Søk"
+        >
+        <div class="menu-layout">
+          <nav id="menu-sidebar" class="menu-sidebar" aria-label="Kategorier"></nav>
+          <div id="menu-panels"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-grid">
+        <div>
+          <h4 data-i18n="footer_address">Adresse</h4>
+          <p><a href="https://maps.google.com/?q=Dronningensgate+53+8514+Narvik" target="_blank" rel="noopener" data-i18n="footer_address_val">Dronningensgate 53, 8514 Narvik</a></p>
+        </div>
+        <div>
+          <h4 data-i18n="footer_phone">Telefon</h4>
+          <p><a href="tel:+4776944444" data-i18n="footer_phone_val">+47 76 94 44 44</a></p>
+        </div>
+        <div>
+          <h4 data-i18n="footer_hours">Åpningstider</h4>
+          <p data-i18n="monday_closed">Mandag: stengt</p>
+          <p data-i18n="hours_line">Tir–Fre 14:00–22:30</p>
+          <p data-i18n="footer_kitchen">Kjøkkenet stenger kl. 22.00</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer_follow">Følg oss</h4>
+          <p><a href="https://www.rootsandflame.no" target="_blank" rel="noopener">rootsandflame.no</a></p>
+        </div>
+      </div>
+      <p class="footer-bottom" data-i18n="footer_copy">© 2026 Roots & Flame</p>
+    </footer>
+  </div>
+
+  <script src="shared/js/i18n.js"></script>
+  <script src="shared/js/ember-canvas.js"></script>
+  <script src="shared/js/menu-data.js"></script>
+  <script src="shared/js/menu-render.js" data-menu-base="shared/data/"></script>
+  <script src="shared/js/app.js"></script>
+</body>
+</html>

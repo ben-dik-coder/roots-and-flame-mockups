@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roots & Flame — Street Luxe</title>
+  <link rel="stylesheet" href="../../shared/css/base.css">
+  <link rel="stylesheet" href="../../shared/css/flame.css">
+  <style>
+    .m5-hero {
+      min-height: 100vh;
+      padding: calc(var(--nav-height) + 2rem) 0 0;
+      background: var(--black);
+    }
+    .m5-hero-top {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    .m5-hero-top .label {
+      font-family: var(--font-condensed);
+      font-size: 1rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+    }
+    .m5-hero-top h1 {
+      font-family: var(--font-bold);
+      font-size: clamp(3rem, 12vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin: 0.5rem 0;
+    }
+    .m5-hero-top h1 span { color: var(--gold); display: block; font-size: 0.5em; }
+    .m5-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 50vh;
+    }
+    .m5-split > div {
+      position: relative;
+      min-height: 280px;
+    }
+    .m5-split .label-overlay {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      font-family: var(--font-condensed);
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+    }
+    .m5-offer-banner {
+      background: var(--gold);
+      color: var(--black);
+      text-align: center;
+      padding: 1rem;
+      font-family: var(--font-bold);
+      font-size: clamp(1.25rem, 4vw, 2rem);
+      letter-spacing: 0.05em;
+    }
+    .m5-menu .menu-card {
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .m5-menu .menu-card.flame-hover {
+      border-radius: 0;
+    }
+    @media (max-width: 768px) {
+      .m5-split { grid-template-columns: 1fr; }
+      .m1-hero-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="../../index.html" class="logo" style="font-family: var(--font-bold); font-size: 1.1rem; letter-spacing: 0.05em;">ROOTS & FLAME</a>
+    <button class="nav-toggle" aria-label="Meny">☰</button>
+    <ul class="nav-links">
+      <li><a href="#menu" data-i18n="nav_menu">Meny</a></li>
+      <li><a href="#offers" data-i18n="nav_offers">Tilbud</a></li>
+      <li><a href="#about" data-i18n="nav_about">Om oss</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
+      <li class="lang-toggle">
+        <button type="button" data-lang="no" class="active">NO</button>
+        <span class="sep">|</span>
+        <button type="button" data-lang="en">EN</button>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="m5-hero">
+    <div class="m5-hero-top">
+      <p class="label" data-i18n="street_tagline">URBAN MAT · PREMIUM FINISH</p>
+      <h1>ROOTS<span>& FLAME</span></h1>
+      <p style="color: var(--muted); font-size: 0.9rem;" data-i18n="tagline">Del opplevelsen. Nyt smaken.</p>
+    </div>
+    <div class="m5-split">
+      <div class="food-placeholder burger">
+        <span class="label-overlay" data-i18n="menu_burger">FLAME BURGER</span>
+      </div>
+      <div class="food-placeholder pizza">
+        <span class="label-overlay" data-i18n="menu_pizza">AMERIKANSK PIZZA</span>
+      </div>
+    </div>
+    <div class="m5-offer-banner" data-i18n="offer_349_title">VALGFRI PIZZA — KUN 349,-</div>
+  </header>
+
+  <section id="offers">
+    <div class="container">
+      <p class="section-label" data-i18n="section_offers">Tilbud</p>
+      <h2 class="section-title" style="font-family: var(--font-bold); font-size: 2.5rem; letter-spacing: 0.05em;" data-i18n="section_offers_title">UKENS FAVORITTER</h2>
+      <div class="offer-card" style="border-color: var(--gold);">
+        <div>
+          <h3 style="font-family: var(--font-bold); font-size: 1.25rem; letter-spacing: 0.05em;" data-i18n="offer_499_title">2 STORE PIZZA — 499,-</h3>
+          <p style="color: var(--muted); margin-top: 0.5rem;" data-i18n="offer_499_desc">Perfekt for vennekveld.</p>
+        </div>
+        <div class="offer-price" style="font-family: var(--font-bold);">499,-</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="m5-menu">
+    <div class="container">
+      <p class="section-label" data-i18n="section_menu">Meny</p>
+      <h2 class="section-title" style="font-family: var(--font-bold); letter-spacing: 0.05em;" data-i18n="section_menu_title">SMAKER FRA ILDEN</h2>
+      <div class="menu-grid">
+        <article class="menu-card flame-hover">
+          <div class="thumb food-placeholder pizza"></div>
+          <div class="info"><h3 data-i18n="menu_pizza">Amerikansk pizza</h3><p class="price">fra 189,-</p><p data-i18n="menu_pizza_desc">Tykk bunn</p></div>
+        </article>
+        <article class="menu-card flame-hover">
+          <div class="thumb food-placeholder burger"></div>
+          <div class="info"><h3 data-i18n="menu_burger">Flame burger</h3><p class="price">249,-</p><p data-i18n="menu_burger_desc">Tre patties</p></div>
+        </article>
+        <article class="menu-card flame-hover">
+          <div class="thumb food-placeholder steak"></div>
+          <div class="info"><h3 data-i18n="menu_steak">Roots steak</h3><p class="price">389,-</p></div>
+        </article>
+        <article class="menu-card flame-hover">
+          <div class="thumb food-placeholder dessert"></div>
+          <div class="info"><h3 data-i18n="menu_dessert">Belgisk vaffel</h3><p class="price">129,-</p></div>
+        </article>
+        <article class="menu-card flame-hover">
+          <div class="thumb food-placeholder pizza"></div>
+          <div class="info"><h3 data-i18n="menu_stirfry">Wok & ris</h3><p class="price">199,-</p></div>
+        </article>
+        <article class="menu-card flame-hover">
+          <div class="thumb food-placeholder burger"></div>
+          <div class="info"><h3 data-i18n="menu_wings">Street wings</h3><p class="price">149,-</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container" style="max-width: 600px;">
+      <p class="section-label" data-i18n="section_about">Om oss</p>
+      <h2 class="section-title" data-i18n="section_about_title">Vår historie</h2>
+      <p style="color: var(--muted);" data-i18n="about_text">Siden 2013 — urban energi møter håndverksmat.</p>
+      <a href="#contact" class="btn btn-primary glow-pulse" style="margin-top: 1.5rem;" data-i18n="view_menu">Se full meny</a>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-grid">
+      <div><h4 data-i18n="footer_address">Adresse</h4><p data-i18n="footer_address_val">Storgata 1, 0000 Oslo</p></div>
+      <div><h4 data-i18n="footer_hours">Åpningstider</h4><p data-i18n="footer_hours_val">Man–Tor 11–22</p></div>
+      <div><h4 data-i18n="footer_follow">Følg oss</h4><p>@rootsandflame</p></div>
+    </div>
+    <p class="footer-bottom" data-i18n="footer_copy">© 2026 Roots & Flame</p>
+  </footer>
+
+  <a href="../../index.html" class="mockup-switcher">← Alle mockups</a>
+  <script src="../../shared/js/i18n.js"></script>
+</body>
+</html>

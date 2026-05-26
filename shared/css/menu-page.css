@@ -1,0 +1,114 @@
+/* Dedikert menyside */
+
+.menu-page-body .site-wrap {
+  min-height: 100vh;
+}
+
+.menu-page-hero {
+  position: relative;
+  z-index: 2;
+  padding: calc(var(--nav-height) + 1.5rem) 0 2.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 93, 4, 0.1) 0%, transparent 55%),
+    var(--charcoal);
+}
+
+.menu-page-hero__inner {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.menu-page-back {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.menu-page-back:hover {
+  color: var(--gold-light);
+}
+
+.menu-page-hero h1 {
+  font-family: var(--font-script);
+  font-size: clamp(2.75rem, 9vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 0.25rem;
+}
+
+.menu-page-sub {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.menu-page-hero .menu-section-intro {
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+}
+
+.menu-page-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.menu-page-main {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 0 4rem;
+  background: var(--charcoal);
+}
+
+.menu-page-main .menu-section-intro {
+  display: none;
+}
+
+.menu-page-main .menu-search {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.nav-links a.active {
+  color: var(--gold-light);
+}
+
+@media (max-width: 768px) {
+  .menu-page-main {
+    padding-top: 1.5rem;
+  }
+
+  .menu-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-sidebar {
+    position: static;
+    max-height: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .menu-cat-btn {
+    width: auto;
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.65rem;
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    border-left: 1px solid rgba(201, 162, 39, 0.25);
+  }
+}
