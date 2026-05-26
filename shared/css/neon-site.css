@@ -40,8 +40,10 @@ body::after {
 
 /* ——— Hero (sentrert neon + bilde) ——— */
 .m2-hero {
+  width: 100%;
   min-height: 100vh;
   min-height: 100svh;
+  min-height: 100dvh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -69,6 +71,14 @@ body::after {
   object-position: center center;
 }
 
+/* Mobil: hele bildet synlig — ingenting klippes */
+@media (max-width: 768px) {
+  .m2-hero__bg img {
+    object-fit: contain;
+    object-position: center center;
+  }
+}
+
 .m2-hero__overlay {
   position: absolute;
   inset: 0;
@@ -93,9 +103,10 @@ body::after {
   align-items: center;
   justify-content: flex-start;
   min-height: 100svh;
-  padding: calc(var(--nav-height) + 0.75rem) 1.5rem clamp(8rem, 18vw, 11rem);
+  min-height: 100dvh;
+  padding: calc(var(--nav-height) + 0.75rem) clamp(1rem, 4vw, 2rem) clamp(8rem, 18vw, 11rem);
   width: 100%;
-  max-width: 32rem; /* 28 % smalere enn 720px */
+  max-width: none;
 }
 
 /* Gullramme + mørk overlay kun rundt teksten */
@@ -549,14 +560,6 @@ h1.neon-text {
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-}
-
-@media (max-width: 768px) {
-  .m2-hero__bg img {
-    object-position: center 32%;
-    transform: scale(0.68);
-    transform-origin: center 32%;
-  }
 }
 
 @media (max-width: 640px) {
