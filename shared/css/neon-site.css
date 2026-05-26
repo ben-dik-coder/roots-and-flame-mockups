@@ -126,7 +126,7 @@ body::after {
   right: 0;
   z-index: 3;
   width: 100%;
-  height: clamp(80px, 14vw, 140px);
+  height: clamp(48px, 8vw, 96px);
   pointer-events: none;
   overflow: hidden;
 }
@@ -144,9 +144,28 @@ body::after {
   position: relative;
   z-index: 1;
   margin-top: 0;
-  padding-top: clamp(5rem, 12vw, 7rem);
   background: transparent;
   overflow: hidden;
+}
+
+#experience.section-after-burn {
+  padding-block: clamp(2rem, 5vw, 3rem) clamp(1rem, 2.5vw, 1.5rem);
+}
+
+#offers.section-neon {
+  padding-block: clamp(1.25rem, 3vw, 2rem) clamp(2.5rem, 6vw, 4rem);
+}
+
+#experience .section-label {
+  margin-bottom: 0.5rem;
+}
+
+#offers .section-label {
+  margin-bottom: 0.4rem;
+}
+
+#offers .section-title {
+  margin-bottom: 0.5rem;
 }
 
 #experience .container {
@@ -170,7 +189,7 @@ body::after {
 }
 
 .m2-hero__text-frame .tagline-muted {
-  color: var(--muted);
+  color: var(--white);
   margin-bottom: 0.25rem;
   font-size: 0.95rem;
 }
@@ -204,6 +223,17 @@ body::after {
 .m2-hero-cta .btn {
   width: 100%;
   justify-content: center;
+}
+
+.m2-hero-cta .btn:not(.btn-primary) {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--gold);
+}
+
+.m2-hero-cta .btn:not(.btn-primary):hover {
+  background: var(--gold);
+  color: var(--black);
 }
 
 @media (min-width: 769px) {
@@ -280,8 +310,8 @@ body::after {
 .values-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem 1.5rem;
-  margin-top: 2rem;
+  gap: 1rem 1.25rem;
+  margin-top: 0.75rem;
   align-items: start;
 }
 
@@ -347,7 +377,7 @@ body::after {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1rem, 2.5vw, 1.5rem);
-  margin-top: 2rem;
+  margin-top: 1rem;
   align-items: stretch;
 }
 
