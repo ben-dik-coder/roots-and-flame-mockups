@@ -94,7 +94,7 @@ body::after {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   align-items: center;
   justify-items: center;
   min-height: 100%;
@@ -105,18 +105,60 @@ body::after {
   gap: 0;
 }
 
-/* Gullramme + mørk overlay kun rundt teksten */
-.m2-hero__text-frame {
+/* Gullramme — Verdier */
+.values-frame {
   position: relative;
   width: 100%;
-  max-width: 28.5rem; /* 28 % smalere enn 640px */
-  padding: clamp(1.25rem, 4vw, 2rem) clamp(1.25rem, 4vw, 2rem);
+  max-width: 40rem;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
   border: 3px solid var(--gold);
   box-shadow:
     inset 0 0 0 1px rgba(232, 197, 71, 0.4),
     inset 0 0 100px rgba(0, 0, 0, 0.5),
     0 0 24px rgba(201, 162, 39, 0.3);
   background: rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.values-frame .section-label {
+  margin-bottom: 0.35rem;
+}
+
+.values-frame__eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.values-frame__title {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  line-height: 1.05;
+  margin: 0 0 0.35rem;
+}
+
+.values-frame__tagline {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+}
+
+.values-frame__milano {
+  font-family: var(--font-script);
+  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  margin-top: 1.5rem;
+  line-height: 1.5;
+}
+
+.values-frame .values-grid--cards {
+  max-width: none;
+  margin-top: 0;
 }
 
 /* Ildkuler — kun øverst i Verdier */
@@ -156,10 +198,6 @@ body::after {
   padding-block: clamp(1.25rem, 3vw, 2rem) clamp(2.5rem, 6vw, 4rem);
 }
 
-#experience .section-label {
-  margin-bottom: 0.5rem;
-}
-
 #offers .section-label {
   margin-bottom: 0.4rem;
 }
@@ -177,35 +215,6 @@ body::after {
   display: block;
   width: 100%;
   height: 100%;
-}
-
-.m2-hero__text-frame .section-label { margin-bottom: 0.5rem; }
-
-.m2-hero__text-frame h1 {
-  font-family: var(--font-script);
-  font-size: clamp(3rem, 10vw, 5.5rem);
-  margin-bottom: 0.35rem;
-  line-height: 1.05;
-}
-
-.m2-hero__text-frame .tagline-muted {
-  color: var(--white);
-  margin-bottom: 0.25rem;
-  font-size: 0.95rem;
-}
-
-.m2-hero__text-frame .milano {
-  font-family: var(--font-script);
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  max-width: 600px;
-  margin: 1.25rem auto 0;
-  line-height: 1.55;
-}
-
-.m2-hero .edison-bulbs {
-  align-self: center;
-  margin: 0;
-  padding: clamp(0.75rem, 3vw, 1.5rem) 0;
 }
 
 .m2-hero-cta {
@@ -248,16 +257,12 @@ body::after {
     padding-bottom: clamp(2rem, 5vw, 3rem);
   }
 
-  .m2-hero .edison-bulbs {
-    margin-top: auto;
-    padding: clamp(2rem, 6vw, 3.5rem) 0 1rem;
-  }
-
   .m2-hero-cta {
     flex-direction: row;
     flex-wrap: wrap;
     width: auto;
-    margin-top: 0.75rem;
+    margin-top: auto;
+    padding-bottom: clamp(0.5rem, 3vw, 1.5rem);
   }
 
   .m2-hero-cta .btn {
@@ -271,18 +276,26 @@ body::after {
     object-position: 72% 36%;
   }
 
-  .m2-hero__text-frame {
-    max-width: min(100%, 19.5rem);
-    padding: 1rem 1.1rem;
+  .values-frame {
+    padding: 1.15rem 1rem 1.25rem;
   }
 
-  .m2-hero__text-frame h1 {
-    font-size: clamp(2.35rem, 9vw, 3.25rem);
+  .values-frame__title {
+    font-size: clamp(2.1rem, 8vw, 2.75rem);
   }
 
-  .m2-hero__text-frame .milano {
-    font-size: clamp(0.85rem, 3.2vw, 1.1rem);
-    margin-top: 0.75rem;
+  .values-frame__eyebrow {
+    font-size: 0.58rem;
+  }
+
+  .values-frame__tagline {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .values-frame__milano {
+    font-size: 0.8rem;
+    margin-top: 1rem;
   }
 
   .m2-hero__overlay {
@@ -449,7 +462,7 @@ body::after {
   line-height: 1;
 }
 
-/* Galleri (forrige grid) */
+/* Galleri */
 .gallery-wall {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
